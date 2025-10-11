@@ -10,7 +10,7 @@ combinado con un estilo **glassmorphism** translúcido.
 
 ![Login Neon Preview](preview.gif)
 
-> *(Agrega una captura o gif de tu proyecto aquí cuando lo tengas.)*
+> **
 
 ---
 
