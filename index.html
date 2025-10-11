@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Efecto Cuadrícula</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      background: #0a0a0a;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* --- Cuadrícula del fondo --- */
+    .grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 45px);
+      grid-auto-rows: 45px;
+      gap: 4px;
+      z-index: 1;
+    }
+
+    .cell {
+      background: rgba(0, 247, 255, 0.03);  /* --- Color de la celda --- */
+      border-radius: 4px;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .cell.active {
+      background: rgba(0,255,225, 0.3);   /* --- Color de la celda activa al pasar el mouse --- */
+      transform: scale(1.1);
+    }
+
+    /* --- Formulario de login --- */
+    .login-container {
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.089);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.171);
+      padding: 40px;
+      border-radius: 20px;
+      width: 320px;
+      text-align: center;
+      color: white;
+      box-shadow: 0 0 30px rgba(0, 217, 255, 0.2);
+      animation: fadeIn 1s ease;
+    }
+
+    .login-container h2 {
+      margin-bottom: 20px;
+      font-weight: 600;
+      font-size: 1.8em;
+    }
+
+    .input-group {
+      position: relative;
+      width: 100%;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 10px 40px 10px 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      font-size: 1em;
+      outline: none;
+    }
+
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #fff;
+      font-size: 18px;
+      user-select: none;
+      transition: color 0.3s;
+    }
+
+    .toggle-password:hover {
+      color: #00ffe1;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      background: linear-gradient(90deg, #00ffe1, #00ffe1);
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .login-container button:hover {
+      background: linear-gradient(90deg, #00ffe1, #00ffe1);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid" id="grid"></div>
+
+  <div class="login-container">
+    <h2>Iniciar Sesión</h2>
+    <input type="text" placeholder="Usuario" />
+    <div class="input-group">
+      <input type="password" id="password" placeholder="Contraseña" />
+      <span class="toggle-password" id="togglePassword">👁️</span>
+    </div>
+    <button>Ingresar</button>
+  </div>
+
+  <script>
+    const grid = document.getElementById("grid");
+    const cellSize = 45;
+    const gap = 4;
+    const totalSize = cellSize + gap;
+
+    // Crear celdas llenando la pantalla
+    const cols = Math.ceil(window.innerWidth / totalSize);
+    const rows = Math.ceil(window.innerHeight / totalSize);
+
+    for (let i = 0; i < cols * rows; i++) {
+      const cell = document.createElement("div");
+      cell.classList.add("cell");
+      grid.appendChild(cell);
+    }
+
+    const cells = document.querySelectorAll(".cell");
+
+    // Calcular las columnas reales que CSS generó
+    const computedStyle = getComputedStyle(grid);
+    const colCount = parseInt(
+      computedStyle.getPropertyValue("grid-template-columns").split(" ").length
+    );
+
+    document.addEventListener("mousemove", (e) => {
+      const x = Math.floor(e.clientX / totalSize);
+      const y = Math.floor(e.clientY / totalSize);
+      const index = y * colCount + x;
+      if (cells[index]) {
+        cells[index].classList.add("active");
+        setTimeout(() => cells[index].classList.remove("active"), 500);
+      }
+    });
+
+    window.addEventListener("resize", () => location.reload());
+
+    // 👁️ Mostrar / ocultar contraseña
+    const togglePassword = document.getElementById("togglePassword");
+    const passwordInput = document.getElementById("password");
+
+    togglePassword.addEventListener("click", () => {
+      const type =
+        passwordInput.getAttribute("type") === "password" ? "text" : "password";
+      passwordInput.setAttribute("type", type);
+      togglePassword.textContent = type === "password" ? "👁️" : "🙈";
+    });
+  </script>
+</body>
+</html>
