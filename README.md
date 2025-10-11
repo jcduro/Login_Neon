@@ -8,7 +8,7 @@ combinado con un estilo **glassmorphism** translúcido.
 
 ## ✨ Vista previa
 
-![Login Neon Preview](login_neon_preview.gif)
+![Login Neon Preview](preview.gif)
 
 > *(Agrega una captura o gif de tu proyecto aquí cuando lo tengas.)*
 
