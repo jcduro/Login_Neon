@@ -28,6 +28,6 @@ combinado con un estilo **glassmorphism** translúcido.
 
 1. Clona este repositorio:
    ```bash
-   git clone https://github.com/tu_usuario/Login_Neon.git
+   git clone https://github.com/jcduro/Login_Neon.git
    cd Login_Neon
 
