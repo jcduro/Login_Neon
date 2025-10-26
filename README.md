@@ -51,7 +51,7 @@ Actualiza las credenciales de conexión a la base de datos en index.php si es ne
 
 ##🗄️ Estructura de archivos
    
-text
+ ```text
 Login_Neon/
 │
 ├─ conexion/conexion.php  # Lógica de conexion (conexión con la BD)
@@ -61,7 +61,9 @@ Login_Neon/
 ├─ styles.css             # Estilos y diseño glassmorphism/neón
 ├─ crear_usuario.sql      # Script SQL para crear tabla y usuario ejemplo
 └─ preview.gif            # Vista previa animada del login
-
+   
+ ```
+---
 
 ## ℹ️ Notas
 El login está preparado para integrarse fácilmente con tu propia base de datos.
