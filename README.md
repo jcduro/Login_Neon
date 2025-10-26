@@ -33,6 +33,13 @@ combinado con un estilo glassmorphism translúcido.
 
 ---
 
+## 📊 Lenguajes y Herramientas
+
+[![My Skills](https://skillicons.dev/icons?i=html,css,js,php,mysql,github,vscode,windows,&theme=light&perline=8)](https://skillicons.dev)
+
+
+---
+
 ## 🚀 Cómo probarlo localmente
 
 1. Clona este repositorio:
