@@ -1,4 +1,4 @@
-💫 Login Neon
+## 💫 Login Neon
 Un formulario de inicio de sesión moderno con efecto neón interactivo:
 una cuadrícula de luces que se activan y desvanecen al mover el mouse,
 combinado con un estilo glassmorphism translúcido.
@@ -13,7 +13,7 @@ combinado con un estilo glassmorphism translúcido.
 
 ---
 
-Características
+## ✨Características
 
 🔹 Login en PHP con conexión lista a la base de datos (archivo index.php)
 
@@ -49,19 +49,21 @@ Actualiza las credenciales de conexión a la base de datos en index.php si es ne
 
 3. Inicia tu servidor local y abre index.php en el navegador.
 
-   🗄️ Estructura de archivos
+##🗄️ Estructura de archivos
    
 text
 Login_Neon/
 │
+├─ conexion/conexion.php  # Lógica de conexion (conexión con la BD)
 ├─ index.php              # Lógica de login (conexión con la BD, hash de contraseña)
+├─ name_basededatos.sql   # (Archivo SQL para crear la BD)
 ├─ script.js              # Animaciones e interactividad del login
 ├─ styles.css             # Estilos y diseño glassmorphism/neón
 ├─ crear_usuario.sql      # Script SQL para crear tabla y usuario ejemplo
 └─ preview.gif            # Vista previa animada del login
 
 
-ℹ️ Notas
+## ℹ️ Notas
 El login está preparado para integrarse fácilmente con tu propia base de datos.
 
 Por seguridad, las contraseñas se almacenan con hash mediante password_hash.
